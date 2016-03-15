@@ -25,8 +25,8 @@ I am assuming you have the PI setup running Raspian and that NodeJS is installed
 - Select 'create a certificate'
 - Select '1 click certificate create'
 - Download the 3 cert files to the aws_certs directory you created earlier
-- Now click the 'Create a Rule' button
-- Now insert the following for this example - this opens up everything which is fine for this demo
+- Now click the 'Create a Policy' button
+- Now insert the exmaple values from the following into the text fields - this opens up everything which is fine for this demo
 ```bash
 {
   "Version": "2016-03-14",
@@ -43,7 +43,31 @@ I am assuming you have the PI setup running Raspian and that NodeJS is installed
   ]
 }
 ```
-- Now click 
+- Now click 'Create Thing'
+- Give your thing a name
+- Ignore the attributes for now and click 'create'
+- Click on the certificate (the checkbox at the botton) you created earlier and click the 'Actions' dropdown
+- Click 'Attach a Policy'
+- Type in the name of the policy you created earlier (it should auto complete)
+- Click 'Attach'
+- Click the 'Actions' dropdown again
+- Click 'Attach a Thing'
+- Type in the name of the thing you created earlier (it should auto complete)
+- Click 'Attach'
+- Click the 'Actions' dropdown again
+- Click 'Activate'
+- Click 'Update Shadow' and enter the following:
+```bash
+{
+  "desired": {
+    "lockangle": 90
+  },
+  "reported": {
+    "lockangle": 90
+  }
+}
+```
+- Switch back to the 'Detail' tab and in the Shado state box you should see your changes.
 - Keep this tab in your browser and open a new tab for the next step... we will need this page for testing after the next step.
 
 ## Alexa
@@ -79,6 +103,7 @@ I am assuming you have the PI setup running Raspian and that NodeJS is installed
 ```
 - Next we need to create 'Slot Types' that correspond with the above schema
 - Click 'Add Slot Type' and enter the following:
+
 For Type: 
 ```bash
 DEVICE_STATE
@@ -89,6 +114,7 @@ Lock
 Unlock
 ```
 - Click 'Add Slot Type' and enter the following:
+
 For Type: 
 ```bash
 LIST_OF_ROOMS
@@ -110,7 +136,8 @@ MyHouse to {Command} {Location} door
 ```bash
 MyHouse to open outside door
 ```
-- if all is working you should be able to switch to eh AWS IoT that you left open ealier and see the shadow state a new 'desired' value.
+- if all is working you should be able to switch to the AWS IoT that you left open ealier and see the shadow state a new 'desired' value.
+- Keep both tabs open for the next step.
 
 ## Raspberry PI
 #### Components Required
@@ -134,3 +161,4 @@ npm install
 ```bash
 node main.js
 ```
+
