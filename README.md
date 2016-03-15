@@ -148,6 +148,11 @@ MyHouse to open outside door
 - Servo
 - 3 male to female connector wires
 
+#### Circuit
+- Create the following circuit:
+
+<img src="http://geekfamily.github.io/awsiotdemo/piservo.png" width="500">
+
 #### Setup
 - In the terminal app of your choice go to the awtisodemo directory
 - Type the following (and wait):
