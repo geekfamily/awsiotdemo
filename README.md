@@ -153,6 +153,19 @@ MyHouse to open outside door
 
 <img src="http://geekfamily.github.io/awsiotdemo/piservo.png" width="500">
 
+####Pi-blaster.js
+- Pull code from https://github.com/sarfata/pi-blaster - Check out all the docs stored there - the shorthand version follows:
+- Run the following commands in the new directory:
+```bash
+./autogen.sh
+./configure
+make
+```
+- Start Pi-blaster
+```bash
+sudo ./pi-blaster 
+```
+
 #### Setup
 - In the terminal app of your choice go to the awtisodemo directory
 - Type the following (and wait):
